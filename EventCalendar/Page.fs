@@ -64,7 +64,7 @@ let parseEventList() =
                 });
             });
             </script>
-            <button id=""opener" + e.Id + @""">Show QR-Code</button>")
+            <button id=""opener" + e.Id + @""">" + jq.jQuery.Invoke("#LocalizationQrcode").text().ToString() + "</button>")
         |> fun c -> asJQuery(c).appendTo(lst) |> ignore
     
     EventItem.items
