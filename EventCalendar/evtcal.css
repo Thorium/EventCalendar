@@ -1,0 +1,57 @@
+﻿
+/* Main list item */
+.myevent {
+    background-color: #B9D1DB;
+    border-style: outset;
+    border-width: thin thick thick thin;
+    border-color: #959DFF;
+    margin: 30px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    /*height: 150px;*/
+    position:relative;
+    z-index: 50;
+}
+.timeAndCity {
+    font-weight: bold
+}
+.details {
+}
+.location {
+}
+.info {
+}
+.qrcode {
+    overflow: visible;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index: 70;
+}
+.maintopic {
+    width: 400px;
+}
+
+/* Google maps container: */
+#mapContainer {
+    height: 570px;
+    width: 270px;
+    border: 10px solid #959DFF;
+    z-index: 100;
+}
+
+/* Calendar */
+.ui-datepicker-current-day .ui-state-active { background: #9F9F6F } 
+.eventDate a.ui-state-hover
+{ background: #718DE2 } 
+.eventDate a.ui-state-default 
+{ background: #4D70DB } 
+div.ui-datepicker
+{ font-size:12px; margin: 10px; }  
+
+.technicaldate {
+    position:absolute;
+    visibility: hidden;
+}
+

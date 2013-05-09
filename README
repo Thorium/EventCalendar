@@ -1,0 +1,25 @@
+EventCalendar is a free JavaScript-based event calendar.
+
+It is not an CMS-plugin.
+
+To compile this, you need:
+- Visual Studio 2012
+- FunScript (F-Sharp to Javascirpt. FunScript uses F#-language, FSharp.Data. It has strongly typed libraries via TypeScript)
+- The compiled version is available at demo-folder.
+
+The runtime uses pure HTML5 + CSS + JavaScript with jQuery, jQuery-UI and Modernizer
+
+Software features:
+- Event list
+- HTML5-Geolocation to find nearest events
+- QR-Code generation: Get event details to your phone notification.
+- Google maps to display locations of events
+- Event calendar to show dates that has events (just JQuery datepicker)
+- Ability to fetch Longitude/Latitude of items (not in UI)
+
+But...
+- There is not yet implementation of any way to fetch events: Now they are just JavaScript objects.
+  I'm planning to make a PHP-page to generate the data (fetch from somewhere).
+- If you have over 2000 visitors per day, I suppose Google will want something for using their APIs (Map, QR-code)
+- UI is not yet fully localized to Finnish. ;-)
+- I have tested this only with Internet Explorer 10, FireFox 20 and Chrome 26.

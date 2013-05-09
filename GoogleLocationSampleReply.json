@@ -1,0 +1,54 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "3",
+               "short_name" : "3",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Rikhardinkatu",
+               "short_name" : "Rikhardinkatu",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Helsinki",
+               "short_name" : "Helsinki",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Suomi",
+               "short_name" : "FI",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "00130",
+               "short_name" : "00130",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Rikhardinkatu 3, 00130 Helsinki, Suomi",
+         "geometry" : {
+            "location" : {
+               "lat" : 60.16615520000001,
+               "lng" : 24.94632250
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 60.16750418029151,
+                  "lng" : 24.94767148029150
+               },
+               "southwest" : {
+                  "lat" : 60.16480621970850,
+                  "lng" : 24.94497351970849
+               }
+            }
+         },
+         "postcode_localities" : [],
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}
