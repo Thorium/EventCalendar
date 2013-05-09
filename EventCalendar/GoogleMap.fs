@@ -77,6 +77,7 @@ let showMyPosition markers =
                         position = coords, 
                         flat = true,
                         map = mymap, 
+                        // Enable if you want your color to be separate from events:
                         //icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
                         title = "You are here!"
                         )) |> ignore

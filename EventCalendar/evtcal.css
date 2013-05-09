@@ -55,3 +55,50 @@ div.ui-datepicker
     visibility: hidden;
 }
 
+/* Data source: See the table if JavaScript is disabled... */
+#datasource {
+    padding: 2px;
+    background-color: #CCCCCC;
+    border: thin solid #000000;
+    z-index: 150;
+}
+
+.dsHead {
+    background-color: #3366CC;
+    color: #CCCCCC;
+}
+.dsEvent {
+    padding: 2px;
+    background-color: #CCCCCC;
+    border: thin solid #000000;
+}
+.dsInfo {
+    padding: 2px;
+    background-color: #CCCCCC;
+    border: thin solid #000000;
+
+}
+ .datacontainer{}
+
+.dsCity
+.dsDay
+.dsDetails
+.dsEvent
+.dsTitle
+.dsEventName
+.dsHour
+.dsId
+.dsInfo
+.dsLatitude
+.dsLocationDetails
+.dsLongitude
+.dsMinute
+.dsMonth
+.dsStreetAddress
+.dsYear
+{}
+
+
+
+
+

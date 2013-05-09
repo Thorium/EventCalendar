@@ -18,6 +18,8 @@ open FunScript.TypeScript
 type j = FunScript.TypeScript.Api< "../Typings/lib.d.ts">
 type jq = FunScript.TypeScript.Api<"../Typings/jquery.d.ts">
 
+let asJQuery x : jq.JQuery = unbox x 
+
 let mydate(y,m,d,h,n) = j.Date.CreateInstance((float)y,(float)m,(float)d,(float)h,(float)n,0.0)
 let mydated(y,m,d) = j.Date.CreateInstance((float)y,(float)m,(float)d)
 
@@ -94,14 +96,40 @@ let fetchQRCodeUrl (itm:calEvent) = // This will make image src for event
     | Note(item) ->
         baseurl + j.encodeURIComponent(item.Info())
 
-// These are the events, should be generated from PHP or something
+// The events are read from the html page source.
 let items = 
-    [|
-        new vevent((1231).ToString(), "Test", mydate(2013,05,07,17,30), "Helsinki", "Rikhardinkatu 3", "Rikhardinkadun kirjasto, Salonki, 3. krs", "(viitenumero: 11743)", (60.1661552,24.9463225)) |> Vevent;
-        new vevent((1232).ToString(), "Test", mydate(2013,05,16,17,30), "Tampere", "Kirjastotalo Metso, Pirkankatu 2", "Toivonen-sali, muumikerros", "(viitenumero: 11620)", (61.4977606,23.7507924)) |> Vevent;
-        new vevent((1233).ToString(), "Test", mydate(2013,05,22,18,00), "Lappeenranta", "Villimiehenkatu 1", "", "(viitenumero: 11905)", (61.0573018,28.1917542)) |> Vevent;
-        new vevent((1235).ToString(), "Test", mydate(2013,05,25,13,00), "Seinäjoki", "Alvar Aallon katu 14", "Pääkirjasto Apila, Jaaksi 3 (pieni kokoustila/atk-luokka)", "(viitenumero: 11879)", (62.7858996,22.8402672)) |> Vevent;
-        new vevent((1236).ToString(), "Test", mydate(2013,05,25,13,00), "Turku", "Rauhankatu 1", "", "", (60.4526784,22.2573233)) |> Vevent;
-        new vevent((1234).ToString(), "Test", mydate(2013,05,25,14,30), "Helsinki", "Rikhardinkatu 3", "Rikhardinkadun kirjasto, Salonki, 3. krs", "(viitenumero: 11895)", (60.1661552,24.9463225)) |> Vevent;
-        new notification((1237).ToString(), "Global test day 1.10.2013", "") |> Note;
-    |]
+    let dsource = j.document.getElementById("#datasource")
+    
+    // The idea is that they are visible even if JavaScript is disabled.
+    // So now we can hide them...
+    jq.jQuery.Invoke(".datacontainer").css("visibility", "hidden")
+    jq.jQuery.Invoke(".datacontainer").css("position", "absolute")
+
+    // This is conservative HTML DOM-parsing: 
+    // FunScript doesn't support yet advanced .NET features
+    let trs = dsource.AsElement().getElementsByTagName("tr")
+    [0 .. ((int)trs.length-1)] 
+    |> Seq.map(
+        fun i -> 
+            let tds = trs.item((float)i).childNodes
+            let s x = tds.item((float)x).textContent
+            let v x = (int)(s x)
+            //j.window.alert(tds.length.ToString()) |> ignore
+            match tds.length with
+            | 13.0 ->  new vevent(
+                        s 0,  // id
+                        s 1,  // title 
+                        mydate(v 2, v 3, v 4, v 5, v 6), // time
+                        s 7,  // city
+                        s 8,  // street address
+                        s 9,  // location details
+                        s 10, // event details
+                        ((float)(s 11),(float)(s 12)) // latitude, longitude
+                       ) |> Vevent;
+            | 3.0 -> new notification(
+                        s 0, // id
+                        s 1, // title
+                        s 2  // details
+                       ) |> Note;
+            | _ -> failwith("#datasource tablestructure has changed!")
+        )

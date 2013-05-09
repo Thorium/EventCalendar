@@ -29,7 +29,7 @@ Array.prototype.CompareTo = function(that) {
    return this.length - that.length;
 };
 
-var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerator_1__ctor, i_UnfoldEnumerator_2__ctor, i_Set_1__ctor, i_SetIterator_1__ctor, i_GenericComparer_1__ctor, i_EventMarker__ctor, i_CreateEnumerable_1__ctor, calEvent_Vevent, calEvent_Note, String_Length, Set_Empty, Set_Contains, Set_Add, Set_1_get_Empty, SetTree_1_SetOne, SetTree_1_SetNode, SetTree_1_SetEmpty, SetTreeModule_toList, SetTreeModule_toArray, SetTreeModule_subset, SetTreeModule_spliceOutSuccessor, SetTreeModule_remove, SetTreeModule_rebalance, SetTreeModule_psubset, SetTreeModule_partitionAux, SetTreeModule_partition1, SetTreeModule_partition, SetTreeModule_notStarted, SetTreeModule_moveNext, SetTreeModule_mkIterator, SetTreeModule_mkIEnumerator, SetTreeModule_mk, SetTreeModule_minimumElementOpt, SetTreeModule_minimumElementAux, SetTreeModule_minimumElement, SetTreeModule_mem, SetTreeModule_maximumElementOpt, SetTreeModule_maximumElementAux, SetTreeModule_maximumElement, SetTreeModule_loop, SetTreeModule_iter, SetTreeModule_isEmpty, SetTreeModule_height, SetTreeModule_get_tolerance, SetTreeModule_forall, SetTreeModule_fold, SetTreeModule_filterAux, SetTreeModule_filter, SetTreeModule_exists, SetTreeModule_current, SetTreeModule_countAux, SetTreeModule_count, SetTreeModule_copyToArray, SetTreeModule_compareStacks, SetTreeModule_compare, SetTreeModule_collapseLHS, SetTreeModule_choose, SetTreeModule_alreadyFinished, SetTreeModule_add, SetTreeModule_SetOne, SetTreeModule_SetNode, Seq_Unfold, Seq_TryPickIndexedAux, Seq_TryPickIndexed, Seq_TryFind, Seq_ToArray, Seq_Skip, Seq_Scan, Seq_Reduce, Seq_OfArray, Seq_MinBy, Seq_Map2, Seq_Map, Seq_Length, Seq_IterateIndexed, Seq_Iterate, Seq_Head, Seq_FromFactory, Seq_FoldIndexedAux, Seq_FoldIndexed, Seq_Fold, Seq_Filter, Seq_Enumerator, Seq_DistinctBy, Seq_Distinct, Seq_Delay, Seq_CompareWith, Seq_Choose, Page_parseEventList, Page_op_Dynamic, Page_main, Page_jQuery, Page_asJQuery, Page_VeventsToMarkers, List_Tail, List_IsEmpty, List_Head, List_Empty, List_CreateCons, LanguagePrimitives_UnboxGeneric, GoogleMap_showMyPosition, GoogleMap_op_Dynamic, GoogleMap_makeMap, EventItem_mydate, EventItem_jsDateFormatToUser, EventItem_jsDateFormatToJson, EventItem_jsDateFormatCalendar, EventItem_items, EventItem_get_items, EventItem_formatDateData, EventItem_fetchQRCodeUrl, Array_ZeroCreate, Array_BoxedLength;
+var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerator_1__ctor, i_UnfoldEnumerator_2__ctor, i_Set_1__ctor, i_SetIterator_1__ctor, i_GenericComparer_1__ctor, i_EventMarker__ctor, i_CreateEnumerable_1__ctor, calEvent_Vevent, calEvent_Note, String_Length, Set_Empty, Set_Contains, Set_Add, Set_1_get_Empty, SetTree_1_SetOne, SetTree_1_SetNode, SetTree_1_SetEmpty, SetTreeModule_toList, SetTreeModule_toArray, SetTreeModule_subset, SetTreeModule_spliceOutSuccessor, SetTreeModule_remove, SetTreeModule_rebalance, SetTreeModule_psubset, SetTreeModule_partitionAux, SetTreeModule_partition1, SetTreeModule_partition, SetTreeModule_notStarted, SetTreeModule_moveNext, SetTreeModule_mkIterator, SetTreeModule_mkIEnumerator, SetTreeModule_mk, SetTreeModule_minimumElementOpt, SetTreeModule_minimumElementAux, SetTreeModule_minimumElement, SetTreeModule_mem, SetTreeModule_maximumElementOpt, SetTreeModule_maximumElementAux, SetTreeModule_maximumElement, SetTreeModule_loop, SetTreeModule_iter, SetTreeModule_isEmpty, SetTreeModule_height, SetTreeModule_get_tolerance, SetTreeModule_forall, SetTreeModule_fold, SetTreeModule_filterAux, SetTreeModule_filter, SetTreeModule_exists, SetTreeModule_current, SetTreeModule_countAux, SetTreeModule_count, SetTreeModule_copyToArray, SetTreeModule_compareStacks, SetTreeModule_compare, SetTreeModule_collapseLHS, SetTreeModule_choose, SetTreeModule_alreadyFinished, SetTreeModule_add, SetTreeModule_SetOne, SetTreeModule_SetNode, Seq_Unfold, Seq_TryPickIndexedAux, Seq_TryPickIndexed, Seq_TryFind, Seq_ToList, Seq_ToArray, Seq_Skip, Seq_Scan, Seq_Reduce, Seq_OfList, Seq_OfArray, Seq_MinBy, Seq_Map2, Seq_Map, Seq_Length, Seq_IterateIndexed, Seq_Iterate, Seq_Head, Seq_FromFactory, Seq_FoldIndexedAux, Seq_FoldIndexed, Seq_Fold, Seq_Filter, Seq_Enumerator, Seq_DistinctBy, Seq_Distinct, Seq_Delay, Seq_CompareWith, Seq_Choose, Range_oneStep, Range_customStep, Page_parseEventList, Page_op_Dynamic, Page_main, Page_jQuery, Page_asJQuery, Page_VeventsToMarkers, List_Tail, List_Reverse, List_IsEmpty, List_Head, List_FoldIndexedAux, List_FoldIndexed, List_Fold, List_Empty, List_CreateCons, LanguagePrimitives_UnboxGeneric, GoogleMap_showMyPosition, GoogleMap_op_Dynamic, GoogleMap_makeMap, GenericConstants_One, EventItem_mydate, EventItem_jsDateFormatToUser, EventItem_jsDateFormatToJson, EventItem_jsDateFormatCalendar, EventItem_items, EventItem_get_items, EventItem_formatDateData, EventItem_fetchQRCodeUrl, Array_ZeroCreate, Array_BoxedLength;
   Array_BoxedLength = (function (xs)
   {
     return xs.length;
@@ -80,101 +80,55 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   });
   EventItem_get_items = (function ()
   {
-    var _temp26;
-    var _temp28;
-    var _temp29;
-    var copyOfStruct = 1231.000000;
-    _temp29 = copyOfStruct.toString();
-    _temp28 = (new i_vevent__ctor(_temp29, "Test", EventItem_mydate(2013.000000, 5.000000, 7.000000, 17.000000, 30.000000), "Helsinki", "Rikhardinkatu 3", "Rikhardinkadun kirjasto, Salonki, 3. krs", "(viitenumero: 11743)", {CompareTo: (function (that)
+    var dsource = document.getElementById("#datasource");
+    jQuery(".datacontainer").css("visibility", "hidden");
+    jQuery(".datacontainer").css("position", "absolute");
+    var trs = dsource.getElementsByTagName("tr");
+    var _temp24;
+    var mapping = (function (i)
     {
-      var diff;
-      return 0.000000;
-    }), Item1: 60.166155, Item2: 24.946323}));
-    _temp26 = (function (arg0)
+      var tds = trs.item(i).childNodes;
+      var s = (function (x)
+      {
+        return tds.item(x).textContent;
+      });
+      var v = (function (x)
+      {
+        return s(x);
+      });
+      var matchValue = tds.length;
+      if ((matchValue.CompareTo(13.000000) == 0.000000)) 
+      {
+        return (function (arg0)
+        {
+          return (new calEvent_Vevent(arg0));
+        })((new i_vevent__ctor(s(0.000000), s(1.000000), EventItem_mydate(v(2.000000), v(3.000000), v(4.000000), v(5.000000), v(6.000000)), s(7.000000), s(8.000000), s(9.000000), s(10.000000), {CompareTo: (function (that)
+        {
+          var diff;
+          return 0.000000;
+        }), Item1: s(11.000000), Item2: s(12.000000)})));
+      }
+      else
+      {
+        if ((matchValue.CompareTo(3.000000) == 0.000000)) 
+        {
+          return (function (arg0)
+          {
+            return (new calEvent_Note(arg0));
+          })((new i_notification__ctor(s(0.000000), s(1.000000), s(2.000000))));
+        }
+        else
+        {
+          throw ("#datasource tablestructure has changed!");
+          return null;
+        };
+      };
+    });
+    _temp24 = (function (source)
     {
-      return (new calEvent_Vevent(arg0));
-    })(_temp28);
-    var _temp33;
-    var _temp35;
-    var _temp36;
-    var _copyOfStruct = 1232.000000;
-    _temp36 = _copyOfStruct.toString();
-    _temp35 = (new i_vevent__ctor(_temp36, "Test", EventItem_mydate(2013.000000, 5.000000, 16.000000, 17.000000, 30.000000), "Tampere", "Kirjastotalo Metso, Pirkankatu 2", "Toivonen-sali, muumikerros", "(viitenumero: 11620)", {CompareTo: (function (that)
-    {
-      var diff;
-      return 0.000000;
-    }), Item1: 61.497761, Item2: 23.750792}));
-    _temp33 = (function (arg0)
-    {
-      return (new calEvent_Vevent(arg0));
-    })(_temp35);
-    var _temp40;
-    var _temp42;
-    var _temp43;
-    var __copyOfStruct = 1233.000000;
-    _temp43 = __copyOfStruct.toString();
-    _temp42 = (new i_vevent__ctor(_temp43, "Test", EventItem_mydate(2013.000000, 5.000000, 22.000000, 18.000000, 0.000000), "Lappeenranta", "Villimiehenkatu 1", "", "(viitenumero: 11905)", {CompareTo: (function (that)
-    {
-      var diff;
-      return 0.000000;
-    }), Item1: 61.057302, Item2: 28.191754}));
-    _temp40 = (function (arg0)
-    {
-      return (new calEvent_Vevent(arg0));
-    })(_temp42);
-    var _temp47;
-    var _temp49;
-    var _temp50;
-    var ___copyOfStruct = 1235.000000;
-    _temp50 = ___copyOfStruct.toString();
-    _temp49 = (new i_vevent__ctor(_temp50, "Test", EventItem_mydate(2013.000000, 5.000000, 25.000000, 13.000000, 0.000000), "Seinäjoki", "Alvar Aallon katu 14", "Pääkirjasto Apila, Jaaksi 3 (pieni kokoustila/atk-luokka)", "(viitenumero: 11879)", {CompareTo: (function (that)
-    {
-      var diff;
-      return 0.000000;
-    }), Item1: 62.785900, Item2: 22.840267}));
-    _temp47 = (function (arg0)
-    {
-      return (new calEvent_Vevent(arg0));
-    })(_temp49);
-    var _temp54;
-    var _temp56;
-    var _temp57;
-    var ____copyOfStruct = 1236.000000;
-    _temp57 = ____copyOfStruct.toString();
-    _temp56 = (new i_vevent__ctor(_temp57, "Test", EventItem_mydate(2013.000000, 5.000000, 25.000000, 13.000000, 0.000000), "Turku", "Rauhankatu 1", "", "", {CompareTo: (function (that)
-    {
-      var diff;
-      return 0.000000;
-    }), Item1: 60.452678, Item2: 22.257323}));
-    _temp54 = (function (arg0)
-    {
-      return (new calEvent_Vevent(arg0));
-    })(_temp56);
-    var _temp61;
-    var _temp63;
-    var _temp64;
-    var _____copyOfStruct = 1234.000000;
-    _temp64 = _____copyOfStruct.toString();
-    _temp63 = (new i_vevent__ctor(_temp64, "Test", EventItem_mydate(2013.000000, 5.000000, 25.000000, 14.000000, 30.000000), "Helsinki", "Rikhardinkatu 3", "Rikhardinkadun kirjasto, Salonki, 3. krs", "(viitenumero: 11895)", {CompareTo: (function (that)
-    {
-      var diff;
-      return 0.000000;
-    }), Item1: 60.166155, Item2: 24.946323}));
-    _temp61 = (function (arg0)
-    {
-      return (new calEvent_Vevent(arg0));
-    })(_temp63);
-    var _temp68;
-    var _temp70;
-    var _temp71;
-    var ______copyOfStruct = 1237.000000;
-    _temp71 = ______copyOfStruct.toString();
-    _temp70 = (new i_notification__ctor(_temp71, "Global test day 1.10.2013", ""));
-    _temp68 = (function (arg0)
-    {
-      return (new calEvent_Note(arg0));
-    })(_temp70);
-    return [_temp26, _temp33, _temp40, _temp47, _temp54, _temp61, _temp68];
+      return Seq_Map(mapping, Seq_OfList(source));
+    });
+    return _temp24(Seq_ToList(Range_oneStep(0.000000, (trs.length - 1.000000))));
   });
   EventItem_jsDateFormatCalendar = (function (md)
   {
@@ -213,10 +167,14 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   {
     return (new Date(y, m, d, h, n, 0.000000));
   });
+  GenericConstants_One = (function ()
+  {
+    return 1;
+  });
   GoogleMap_makeMap = (function (markers)
   {
-    var _temp124;
-    var _temp125;
+    var _temp78;
+    var _temp79;
     var returnVal = {};
     returnVal.zoom = 5.000000;
     null;
@@ -226,14 +184,14 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     null;
     returnVal.mapTypeId = google.maps.MapTypeId.ROADMAP;
     null;
-    _temp125 = returnVal;
-    _temp124 = (new google.maps.Map(document.getElementById("mapContainer"), _temp125));
-    var map = _temp124;
-    var _temp129;
+    _temp79 = returnVal;
+    _temp78 = (new google.maps.Map(document.getElementById("mapContainer"), _temp79));
+    var map = _temp78;
+    var _temp83;
     var action = (function (i)
     {
-      var _temp131;
-      var _temp132;
+      var _temp85;
+      var _temp86;
       var _returnVal = {};
       _returnVal.clickable = true;
       null;
@@ -252,18 +210,18 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       null;
       _returnVal.title = i.Title;
       null;
-      _temp132 = _returnVal;
-      _temp131 = (new google.maps.Marker(_temp132));
+      _temp86 = _returnVal;
+      _temp85 = (new google.maps.Marker(_temp86));
       return (function (value)
       {
         ;
-      })(_temp131);
+      })(_temp85);
     });
-    _temp129 = (function (source)
+    _temp83 = (function (source)
     {
       return Seq_Iterate(action, source);
     });
-    _temp129(markers);
+    _temp83(markers);
     return map;
   });
   GoogleMap_op_Dynamic = (function (jqx, name)
@@ -280,8 +238,8 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         var coords = (new google.maps.LatLng(latitude, longitude));
-        var _temp134;
-        var _temp135;
+        var _temp88;
+        var _temp89;
         var returnVal = {};
         returnVal.position = coords;
         null;
@@ -291,12 +249,12 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         null;
         returnVal.title = "You are here!";
         null;
-        _temp135 = returnVal;
-        _temp134 = (new google.maps.Marker(_temp135));
+        _temp89 = returnVal;
+        _temp88 = (new google.maps.Marker(_temp89));
         (function (value)
         {
           ;
-        })(_temp134);
+        })(_temp88);
         var distance = (function (tupledArg)
         {
           var marklat = tupledArg.Item1;
@@ -310,43 +268,43 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
           var c = (2.000000 * Math.atan2(Math.sqrt(a), Math.sqrt((1.000000 - a))));
           return (R * c);
         });
-        var _temp141;
-        var _temp142;
+        var _temp95;
+        var _temp96;
         var projection = (function (f)
         {
           return f;
         });
-        _temp142 = (function (source)
+        _temp96 = (function (source)
         {
           return Seq_MinBy(projection, source);
         });
-        var _temp144;
-        var _temp145;
+        var _temp98;
+        var _temp99;
         var mapping = (function (f)
         {
           return distance(f.Coordinates);
         });
-        _temp145 = (function (source)
+        _temp99 = (function (source)
         {
           return Seq_Map(mapping, source);
         });
-        _temp144 = _temp145(markers);
-        _temp141 = _temp142(_temp144);
-        var nearest = _temp141;
-        var _temp147;
-        var _temp148;
+        _temp98 = _temp99(markers);
+        _temp95 = _temp96(_temp98);
+        var nearest = _temp95;
+        var _temp101;
+        var _temp102;
         var predicate = (function (f)
         {
           var d = (distance(f.Coordinates) - nearest);
           return (d.CompareTo(20.000000) < 0.000000);
         });
-        _temp148 = (function (source)
+        _temp102 = (function (source)
         {
           return Seq_Filter(predicate, source);
         });
-        _temp147 = _temp148(markers);
-        var quiteNear = _temp147;
-        var _temp149;
+        _temp101 = _temp102(markers);
+        var quiteNear = _temp101;
+        var _temp103;
         var action = (function (f)
         {
           return (function (value)
@@ -354,11 +312,11 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
             ;
           })(GoogleMap_op_Dynamic(jQuery, f.Id).css("backgroundColor", "#75BDD5"));
         });
-        _temp149 = (function (source)
+        _temp103 = (function (source)
         {
           return Seq_Iterate(action, source);
         });
-        return _temp149(quiteNear);
+        return _temp103(quiteNear);
       }));
     }
     else
@@ -378,6 +336,36 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   {
     return (new list_1_Nil());
   });
+  List_Fold = (function (f, seed, xs)
+  {
+    return List_FoldIndexed((function (_arg1)
+    {
+      return (function (acc)
+      {
+        return (function (x)
+        {
+          return f(acc)(x);
+        });
+      });
+    }), seed, xs);
+  });
+  List_FoldIndexed = (function (f, seed, xs)
+  {
+    return List_FoldIndexedAux(f, 0.000000, seed, xs);
+  });
+  List_FoldIndexedAux = (function (f, i, acc, _arg1)
+  {
+    if ((_arg1.Tag == "Cons")) 
+    {
+      var xs = _arg1.Item2;
+      var x = _arg1.Item1;
+      return List_FoldIndexedAux(f, (i + 1.000000), f(i)(acc)(x), xs);
+    }
+    else
+    {
+      return acc;
+    };
+  });
   List_Head = (function (_arg1)
   {
     if ((_arg1.Tag == "Cons")) 
@@ -396,6 +384,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   {
     return ((_arg1.Tag == "Nil") && true);
   });
+  List_Reverse = (function (xs)
+  {
+    return List_Fold((function (acc)
+    {
+      return (function (x)
+      {
+        return (new list_1_Cons(x, acc));
+      });
+    }), (new list_1_Nil()), xs);
+  });
   List_Tail = (function (_arg1)
   {
     if ((_arg1.Tag == "Cons")) 
@@ -412,20 +410,20 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   });
   Page_VeventsToMarkers = (function (is)
   {
-    var _temp103;
-    var _temp113;
-    var _temp118;
-    var _temp119;
+    var _temp56;
+    var _temp66;
+    var _temp71;
+    var _temp72;
     var predicate = (function (i)
     {
       return (i.Id.CompareTo("") != 0.000000);
     });
-    _temp119 = (function (source)
+    _temp72 = (function (source)
     {
       return Seq_Filter(predicate, source);
     });
-    var _temp121;
-    var _temp122;
+    var _temp74;
+    var _temp75;
     var mapping = (function (i)
     {
       if ((i.Tag == "Vevent")) 
@@ -442,21 +440,21 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         }), Item1: 0.000000, Item2: 0.000000}));
       };
     });
-    _temp122 = (function (source)
+    _temp75 = (function (source)
     {
       return Seq_Map(mapping, source);
     });
-    _temp121 = _temp122(is);
-    _temp118 = _temp119(_temp121);
-    _temp113 = (function (source)
+    _temp74 = _temp75(is);
+    _temp71 = _temp72(_temp74);
+    _temp66 = (function (source)
     {
       return Seq_Distinct(source);
-    })(_temp118);
-    _temp103 = (function (source)
+    })(_temp71);
+    _temp56 = (function (source)
     {
       return Seq_ToArray(source);
-    })(_temp113);
-    var retr = _temp103;
+    })(_temp66);
+    var retr = _temp56;
     return retr;
   });
   Page_asJQuery = (function (x)
@@ -473,7 +471,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     {
       ;
     })(Page_parseEventList());
-    var marks = Page_VeventsToMarkers(Seq_OfArray(EventItem_items));
+    var marks = Page_VeventsToMarkers(EventItem_items);
     return GoogleMap_showMyPosition(Seq_OfArray(marks));
   });
   Page_op_Dynamic = (function (jqx, name)
@@ -515,7 +513,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         return Page_asJQuery(a).attr("id", e.get_Id());
       })(Page_jQuery("\u003cdiv /\u003e").attr("class", ("myevent " + EventItem_jsDateFormatCalendar(e.get_StarTime()))))));
     });
-    var _temp21;
+    var _temp4;
     var action = (function (i)
     {
       if ((i.Tag == "Note")) 
@@ -529,11 +527,39 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         return makediv(x);
       };
     });
-    _temp21 = (function (source)
+    _temp4 = (function (source)
     {
-      return Seq_Iterate(action, Seq_OfArray(source));
+      return Seq_Iterate(action, source);
     });
-    return _temp21(EventItem_items);
+    return _temp4(EventItem_items);
+  });
+  Range_customStep = (function (first, stepping, last)
+  {
+    var _temp25;
+    var f = (function (x)
+    {
+      if ((x.CompareTo(last) <= 0.000000)) 
+      {
+        return {Tag: "Some", Value: {CompareTo: (function (that)
+        {
+          var diff;
+          return 0.000000;
+        }), Item1: x, Item2: (x + stepping)}};
+      }
+      else
+      {
+        return {Tag: "None"};
+      };
+    });
+    _temp25 = (function (seed)
+    {
+      return Seq_Unfold(f, seed);
+    });
+    return _temp25(first);
+  });
+  Range_oneStep = (function (first, last)
+  {
+    return Range_customStep(first, GenericConstants_One(), last);
   });
   Seq_Choose = (function (f, xs)
   {
@@ -567,35 +593,35 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       return Seq_Delay(_f);
     })((function (unitVar0)
     {
-      var _temp74;
+      var _temp28;
       var _f = trySkipToNext;
-      _temp74 = (function (seed)
+      _temp28 = (function (seed)
       {
         return Seq_Unfold(_f, seed);
       });
-      return _temp74(Seq_Enumerator(xs));
+      return _temp28(Seq_Enumerator(xs));
     }));
   });
   Seq_CompareWith = (function (f, xs, ys)
   {
-    var _temp16;
-    var _temp17;
+    var _temp19;
+    var _temp20;
     var _f = (function (i)
     {
       return (i.CompareTo(0.000000) != 0.000000);
     });
-    _temp17 = (function (_xs)
+    _temp20 = (function (_xs)
     {
       return Seq_TryFind(_f, _xs);
     });
-    _temp16 = _temp17(Seq_Map2((function (x)
+    _temp19 = _temp20(Seq_Map2((function (x)
     {
       return (function (y)
       {
         return f(x)(y);
       });
     }), xs, ys));
-    var nonZero = _temp16;
+    var nonZero = _temp19;
     if ((nonZero.Tag == "None")) 
     {
       return (Seq_Length(xs) - Seq_Length(ys));
@@ -610,10 +636,10 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   {
     return Seq_FromFactory((function (unitVar0)
     {
-      var _temp6;
-      var _temp7;
-      _temp6 = f(_temp7);
-      return Seq_Enumerator(_temp6);
+      var _temp9;
+      var _temp10;
+      _temp9 = f(_temp10);
+      return Seq_Enumerator(_temp9);
     }));
   });
   Seq_Distinct = (function (xs)
@@ -625,16 +651,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   });
   Seq_DistinctBy = (function (f, xs)
   {
-    var _temp75;
+    var _temp29;
     var _f = (function (tuple)
     {
       return tuple.Item1;
     });
-    _temp75 = (function (_xs)
+    _temp29 = (function (_xs)
     {
       return Seq_Choose(_f, _xs);
     });
-    return _temp75(Seq_Scan((function (tupledArg)
+    return _temp29(Seq_Scan((function (tupledArg)
     {
       var _arg1 = tupledArg.Item1;
       var acc = tupledArg.Item2;
@@ -704,13 +730,13 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       return Seq_Delay(_f);
     })((function (unitVar0)
     {
-      var _temp82;
+      var _temp36;
       var _f = trySkipToNext;
-      _temp82 = (function (seed)
+      _temp36 = (function (seed)
       {
         return Seq_Unfold(_f, seed);
       });
-      return _temp82(Seq_Enumerator(xs));
+      return _temp36(Seq_Enumerator(xs));
     }));
   });
   Seq_Fold = (function (f, seed, xs)
@@ -760,18 +786,18 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   });
   Seq_Iterate = (function (f, xs)
   {
-    var _temp20;
+    var _temp3;
     return Seq_Fold((function (unitVar0)
     {
       return (function (x)
       {
         return f(x);
       });
-    }), _temp20, xs);
+    }), _temp3, xs);
   });
   Seq_IterateIndexed = (function (f, xs)
   {
-    var _temp72;
+    var _temp26;
     return Seq_FoldIndexed((function (i)
     {
       return (function (unitVar1)
@@ -781,7 +807,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
           return f(i)(x);
         });
       });
-    }), _temp72, xs);
+    }), _temp26, xs);
   });
   Seq_Length = (function (xs)
   {
@@ -800,7 +826,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       return Seq_Delay(_f);
     })((function (unitVar0)
     {
-      var _temp84;
+      var _temp23;
       var _f = (function (_enum)
       {
         if (_enum.MoveNext()) 
@@ -816,11 +842,11 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
           return {Tag: "None"};
         };
       });
-      _temp84 = (function (seed)
+      _temp23 = (function (seed)
       {
         return Seq_Unfold(_f, seed);
       });
-      return _temp84(Seq_Enumerator(xs));
+      return _temp23(Seq_Enumerator(xs));
     }));
   });
   Seq_Map2 = (function (f, xs, ys)
@@ -832,31 +858,31 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     {
       var _xs = Seq_Enumerator(xs);
       var _ys = Seq_Enumerator(ys);
-      var _temp11;
+      var _temp14;
       var _f = (function (_unitVar0)
       {
         if ((_xs.MoveNext() && _ys.MoveNext())) 
         {
-          var _temp13;
-          var _temp14;
-          _temp13 = {CompareTo: (function (that)
+          var _temp16;
+          var _temp17;
+          _temp16 = {CompareTo: (function (that)
           {
             var diff;
             return 0.000000;
-          }), Item1: f(_xs.get_Current())(_ys.get_Current()), Item2: _temp14};
-          return {Tag: "Some", Value: _temp13};
+          }), Item1: f(_xs.get_Current())(_ys.get_Current()), Item2: _temp17};
+          return {Tag: "Some", Value: _temp16};
         }
         else
         {
           return {Tag: "None"};
         };
       });
-      _temp11 = (function (seed)
+      _temp14 = (function (seed)
       {
         return Seq_Unfold(_f, seed);
       });
-      var _temp15;
-      return _temp11(_temp15);
+      var _temp18;
+      return _temp14(_temp18);
     }));
   });
   Seq_MinBy = (function (f, xs)
@@ -878,7 +904,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   });
   Seq_OfArray = (function (xs)
   {
-    var _temp19;
+    var _temp76;
     var f = (function (i)
     {
       if ((i.CompareTo(Array_BoxedLength(xs)) < 0.000000)) 
@@ -894,11 +920,37 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         return {Tag: "None"};
       };
     });
-    _temp19 = (function (seed)
+    _temp76 = (function (seed)
     {
       return Seq_Unfold(f, seed);
     });
-    return _temp19(0.000000);
+    return _temp76(0.000000);
+  });
+  Seq_OfList = (function (xs)
+  {
+    var _temp22;
+    var f = (function (_arg1)
+    {
+      if ((_arg1.Tag == "Cons")) 
+      {
+        var _xs = List_Tail(_arg1);
+        var x = List_Head(_arg1);
+        return {Tag: "Some", Value: {CompareTo: (function (that)
+        {
+          var diff;
+          return 0.000000;
+        }), Item1: x, Item2: _xs}};
+      }
+      else
+      {
+        return {Tag: "None"};
+      };
+    });
+    _temp22 = (function (seed)
+    {
+      return Seq_Unfold(f, seed);
+    });
+    return _temp22(xs);
   });
   Seq_Reduce = (function (f, xs)
   {
@@ -914,7 +966,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     })((function (unitVar0)
     {
       var _xs = Seq_Enumerator(xs);
-      var _temp81;
+      var _temp35;
       var _f = (function (_arg1)
       {
         if ((_arg1.Tag == "Some")) 
@@ -943,11 +995,11 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
           }), Item1: seed, Item2: {Tag: "Some", Value: seed}}};
         };
       });
-      _temp81 = (function (_seed)
+      _temp35 = (function (_seed)
       {
         return Seq_Unfold(_f, _seed);
       });
-      return _temp81({Tag: "None"});
+      return _temp35({Tag: "None"});
     }));
   });
   Seq_Skip = (function (n, xs)
@@ -955,7 +1007,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     return Seq_FromFactory((function (unitVar0)
     {
       var _enum = Seq_Enumerator(xs);
-      for (var _temp136 = 1.000000; _temp136 <= n; _temp136++)
+      for (var _temp90 = 1.000000; _temp90 <= n; _temp90++)
       {
         (function (i)
         {
@@ -963,7 +1015,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
           {
             ;
           })(_enum.MoveNext());
-        })(_temp136);
+        })(_temp90);
       };
       return _enum;
     }));
@@ -971,7 +1023,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   Seq_ToArray = (function (xs)
   {
     var ys = Array_ZeroCreate(Seq_Length(xs));
-    var _temp73;
+    var _temp27;
     var f = (function (i)
     {
       return (function (x)
@@ -980,12 +1032,25 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         return null;
       });
     });
-    _temp73 = (function (_xs)
+    _temp27 = (function (_xs)
     {
       return Seq_IterateIndexed(f, _xs);
     });
-    _temp73(xs);
+    _temp27(xs);
     return ys;
+  });
+  Seq_ToList = (function (xs)
+  {
+    return (function (list)
+    {
+      return List_Reverse(list);
+    })(Seq_Fold((function (acc)
+    {
+      return (function (x)
+      {
+        return List_CreateCons(x, acc);
+      });
+    }), List_Empty(), xs));
   });
   Seq_TryFind = (function (f, xs)
   {
@@ -1488,16 +1553,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         var r = s.Item3;
         var l = s.Item2;
         var _k = s.Item1;
-        var _temp80;
+        var _temp34;
         if (f(_k)) 
         {
-          _temp80 = SetTreeModule_add(comparer, _k, acc);
+          _temp34 = SetTreeModule_add(comparer, _k, acc);
         }
         else
         {
-          _temp80 = acc;
+          _temp34 = acc;
         };
-        var _acc = _temp80;
+        var _acc = _temp34;
         return SetTreeModule_filterAux(comparer, f, l, SetTreeModule_filterAux(comparer, f, r, _acc));
       };
     };
@@ -1779,16 +1844,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       {
         var hl = SetTreeModule_height(l);
         var hr = SetTreeModule_height(r);
-        var _temp76;
+        var _temp30;
         if ((hl.CompareTo(hr) < 0.000000)) 
         {
-          _temp76 = hr;
+          _temp30 = hr;
         }
         else
         {
-          _temp76 = hl;
+          _temp30 = hl;
         };
-        var m = _temp76;
+        var m = _temp30;
         return SetTreeModule_SetNode(k, l, r, (m + 1.000000));
       };
     }
@@ -1796,16 +1861,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
     {
       var _hl = SetTreeModule_height(l);
       var _hr = SetTreeModule_height(r);
-      var _temp77;
+      var _temp31;
       if ((_hl.CompareTo(_hr) < 0.000000)) 
       {
-        _temp77 = _hr;
+        _temp31 = _hr;
       }
       else
       {
-        _temp77 = _hl;
+        _temp31 = _hl;
       };
-      var _m = _temp77;
+      var _m = _temp31;
       return SetTreeModule_SetNode(k, l, r, (_m + 1.000000));
     };
   });
@@ -1909,16 +1974,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
         var r = s.Item3;
         var l = s.Item2;
         var _k = s.Item1;
-        var _temp78;
+        var _temp32;
         var arg30_ = acc.Item1;
         var arg31_ = acc.Item2;
-        _temp78 = SetTreeModule_partitionAux(comparer, f, r, arg30_, arg31_);
-        var _acc = _temp78;
-        var _temp79;
+        _temp32 = SetTreeModule_partitionAux(comparer, f, r, arg30_, arg31_);
+        var _acc = _temp32;
+        var _temp33;
         var _acc1 = _acc.Item1;
         var _acc2 = _acc.Item2;
-        _temp79 = SetTreeModule_partition1(comparer, f, _k, _acc1, _acc2);
-        var __acc = _temp79;
+        _temp33 = SetTreeModule_partition1(comparer, f, _k, _acc1, _acc2);
+        var __acc = _temp33;
         var _arg30_ = __acc.Item1;
         var _arg31_ = __acc.Item2;
         return SetTreeModule_partitionAux(comparer, f, l, _arg30_, _arg31_);
@@ -2210,8 +2275,8 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   i_CreateEnumerable_1__ctor.prototype.GetEnumerator = (function (unitVar1)
   {
     var __ = this;
-    var _temp18;
-    return __.factory(_temp18);
+    var _temp21;
+    return __.factory(_temp21);
   });
   i_EventMarker__ctor = (function (Id, Title, Coordinates)
   {
@@ -2465,7 +2530,7 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   {
     var __ = this;
     var matchValue = __.acc;
-    var _temp3;
+    var _temp6;
     var currAcc = matchValue.Value;
     var _matchValue = __.unfold(currAcc);
     if ((_matchValue.Tag == "Some")) 
@@ -2474,15 +2539,15 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
       var nextAcc = _matchValue.Value.Item2;
       __.acc = {Tag: "Some", Value: nextAcc};
       __.current = value;
-      _temp3 = true;
+      _temp6 = true;
     }
     else
     {
       __.acc = {Tag: "None"};
       __.current = null;
-      _temp3 = false;
+      _temp6 = false;
     };
-    return ((matchValue.Tag == "Some") && _temp3);
+    return ((matchValue.Tag == "Some") && _temp6);
   });
   i_UnfoldEnumerator_2__ctor.prototype.Dispose = (function (unitVar1)
   {
@@ -2552,16 +2617,16 @@ var list_1_Nil, list_1_Cons, i_vevent__ctor, i_notification__ctor, i_mkIEnumerat
   i_vevent__ctor.prototype.Summary = (function (unitVar1)
   {
     var x = this;
-    var _temp23;
+    var _temp5;
     if ((String_Length(x.get_LocationDetails()).CompareTo(0.000000) > 0.000000)) 
     {
-      _temp23 = (x.get_LocationDetails() + ", \r\n");
+      _temp5 = (x.get_LocationDetails() + ", \r\n");
     }
     else
     {
-      _temp23 = "";
+      _temp5 = "";
     };
-    var locdet = _temp23;
+    var locdet = _temp5;
     return (((((((EventItem_jsDateFormatToUser(x.get_StarTime()) + " \r\n") + x.get_Title()) + " (") + x.get_City()) + ")\r\n") + locdet) + x.get_Details());
   });
   i_vevent__ctor.prototype.iCal = (function (unitVar1)
