@@ -15,6 +15,13 @@
     <script type="text/javascript">
         $(function () {
             $("#dialog").dialog({ autoOpen: false });
+            $("#mapContainer").resizable({
+                helper: "ui-resizable-helper",
+                handles: 's, w, sw',
+                minHeight: 570,
+                minWidth: 270,
+                knobHandles: true,
+            });
         });
     </script>
 </head>
@@ -42,7 +49,7 @@
 
         <div style="display:inline;float:right">
 
-            You can zoom with mouse...
+            You can resize and zoom with mouse...
             <div id="mapContainer"></div>
         </div>
         

@@ -61,6 +61,14 @@ let makeMap markers  =
                     //icon = "blue_markerA.png",
                     title = i.Title                    
                     )) |> ignore)
+    let myTimer = ref 0.0
+    let mapresize() = 
+        let refresh() =
+            //j.window.alert("resized")
+            gmaps.event.trigger(map, "resize", null)            
+        j.clearTimeout(!myTimer)
+        myTimer := j.setTimeout(refresh, 1000)
+    (jq.jQuery?("mapContainer")).bind("resize", mapresize) |> ignore
     map
 
 // Add my location to map
