@@ -74,7 +74,7 @@ let makeMap markers  =
 // Add my location to map
 let showMyPosition markers = 
     let mymap = makeMap(markers)
-    if m.Modernizr.geolocation then
+    if m.Modernizr.geolocation && not(Seq.isEmpty markers) then
         j.navigator.AsNavigatorGeolocation().geolocation.getCurrentPosition(
             unbox(fun (position:j.Position) ->
                 let latitude = position.coords.latitude

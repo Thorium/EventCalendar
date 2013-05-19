@@ -58,10 +58,13 @@ let internal fetchCoordinates address (callback:'a -> unit) =
 
 
 let internal parseGoogleLocation (data:LocationReply) = 
-    let replies = Seq.head data.results
-    let latlon = replies.geometry.location.lat, replies.geometry.location.lng
-    j.window.alert(replies.formatted_address + "\r\nLatitude: " + fst(latlon).ToString() + " Longitude: " + snd(latlon).ToString())
-    //latlon
+    match Seq.isEmpty data.results with
+    | true -> "No results" |>ignore
+    | false ->
+        let replies = Seq.head data.results
+        let latlon = replies.geometry.location.lat, replies.geometry.location.lng
+        j.window.alert(replies.formatted_address + "\r\nLatitude: " + fst(latlon).ToString() + " Longitude: " + snd(latlon).ToString())
+        //latlon
     
 let public FetchLatLong address = 
     let result = fetchCoordinates address (parseGoogleLocation)
