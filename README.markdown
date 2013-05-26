@@ -45,4 +45,4 @@ What this is not:
 - This is not registration/enrollment-system, advertisement-system or news/RSS-source. Social media does that better.
 
 
-  [1]: https://github.com/Thorium/EventCalendar/blob/master/demo/demo.jpg
+  [1]: https://raw.github.com/Thorium/EventCalendar/master/demo/demo.jpg
