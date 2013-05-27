@@ -1,9 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<?php
+//Debug:
+ini_set('display_errors', 'On');
+ 
+//Alustetaan sivu:
+require 'dataaccess.php';
+$DA = new Data_Access;
+$DA->openDatabase();
+
+$hideGone = "and (ISNULL(CONCAT(DateYear, '-', DateMonth, '-', DateDay)) or DateYear=0 or STR_TO_DATE(CONCAT(DateYear, '-', DateMonth, '-', DateDay),'%Y-%m-%d') >= NOW() ) ";
+$sql="select Id, Title, Visible, EventType, DateYear, DateMonth, DateDay, DateHour, DateMinute, City, StreetAddress, LocationDetails, EventDetails, Latitude, Longitude from EventCalendar where Visible=0 " . $hideGone . "order by STR_TO_DATE(CONCAT(DateYear, '-', DateMonth, '-', DateDay),'%Y-%m-%d') DESC, Id DESC";
+$eventdata=$DA->getValues($sql);
+
+?><!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Event calendar</title>    
+    <title>Testikalenteri</title>    
     <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
@@ -22,6 +35,30 @@
                 minWidth: 270,
                 knobHandles: true,
             });
+            $("#wish").submit(function(e){
+                e.preventDefault();
+                $serdata = $(this).serialize();
+                //alert($serdata);
+                
+                $.ajax({
+                    cache: false,
+                    type: 'POST',
+                    url: 'testikalenteribl.php',
+                    data: $serdata,
+                    success: function(data){
+                        //alert(data);
+                        if(data=="safty-fail"){
+                            alert("Vastasit turvakysymykseen väärin.");
+                        }else{
+                            alert("Palaute lähetetty. Pyrimme vastaamaan toiveeseesi.");
+                            $("#wish").closest('form').find("input[type=text], textarea").val("");
+                        }
+                    },
+                    error:function(xhr){
+                        alert("Lähetys epäonnistui. " + xhr.statusText);
+                    }                    
+                    });
+            });
         });
     </script>
 </head>
@@ -36,26 +73,42 @@
                     Id-field is what ever url-encoded string or number.
                     Please be brief for all fields: QR-codes have SMS-style character limitations.
                 -->
-                <tr class="dsEvent"><td class="dsId">1231</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">07</td><td class="dsHour">17</td><td class="dsMinute">30</td><td class="dsCity">Helsinki</td><td class="dsStreetAddress">Rikhardinkatu 3</td><td class="dsLocationDetails">Rikhardinkadun kirjasto, Salonki, 3. krs</td><td class="dsEventDetails">(viitenumero: 11743)</td><td class="dsLatitude">60.1661552</td><td class="dsLongitude">24.9463225</td></tr>
-                <tr class="dsEvent"><td class="dsId">1232</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">16</td><td class="dsHour">17</td><td class="dsMinute">30</td><td class="dsCity">Tampere</td><td class="dsStreetAddress">Kirjastotalo Metso, Pirkankatu 2</td><td class="dsLocationDetails">Toivonen-sali, muumikerros</td><td class="dsEventDetails">(viitenumero: 11620)</td><td class="dsLatitude">61.4977606</td><td class="dsLongitude">23.7507924</td></tr>
-                <tr class="dsEvent"><td class="dsId">1233</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">22</td><td class="dsHour">18</td><td class="dsMinute">00</td><td class="dsCity">Lappeenranta</td><td class="dsStreetAddress">Villimiehenkatu 1</td><td class="dsLocationDetails"></td><td class="dsEventDetails">(viitenumero: 11905)</td><td class="dsLatitude">61.0573018</td><td class="dsLongitude">28.1917542</td></tr>
-                <tr class="dsEvent"><td class="dsId">1234</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">25</td><td class="dsHour">13</td><td class="dsMinute">00</td><td class="dsCity">Seinäjoki</td><td class="dsStreetAddress">Alvar Aallon katu 14</td><td class="dsLocationDetails">Pääkirjasto Apila, Jaaksi 3 (pieni kokoustila/atk-luokka)</td><td class="dsEventDetails">(viitenumero: 11879)</td><td class="dsLatitude">62.7858996</td><td class="dsLongitude">22.8402672</td></tr>
-                <tr class="dsEvent"><td class="dsId">1235</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">25</td><td class="dsHour">13</td><td class="dsMinute">00</td><td class="dsCity">Turku</td><td class="dsStreetAddress">Rauhankatu 1</td><td class="dsLocationDetails"></td><td class="dsEventDetails">(viitenumero: 11879)</td><td class="dsLatitude">60.4526784</td><td class="dsLongitude">22.2573233</td></tr>
-                <tr class="dsEvent"><td class="dsId">1236</td><td class="dsTitle">Test</td><td class="dsYear">2013</td><td class="dsMonth">05</td><td class="dsDay">25</td><td class="dsHour">14</td><td class="dsMinute">30</td><td class="dsCity">Helsinki</td><td class="dsStreetAddress">Rikhardinkatu 3</td><td class="dsLocationDetails">Rikhardinkadun kirjasto, Salonki, 3. krs</td><td class="dsEventDetails">(viitenumero: 11895)</td><td class="dsLatitude">60.1661552</td><td class="dsLongitude">24.9463225</td></tr>
-                <tr class="dsInfo"><td class="dsId">1237</td><td colspan="9" class="dsTitle">Global test day 1.10.2013</td><td colspan="3" class="dsDetails">Some more info to come...</td></tr>
+<?php
+if(isset($eventdata)){
+    while($row=mysqli_fetch_array($eventdata, MYSQL_ASSOC)){
+        if($row["EventType"]=="0" || $row["EventType"]==0){
+            print "<tr class='dsEvent'><td class='dsId'>".htmlspecialchars($row["Id"]);
+            print "</td>\r\n<td class='dsTitle'>".htmlspecialchars($row["Title"]);
+            print "</td>\r\n<td class='dsYear'>".htmlspecialchars($row["DateYear"]);
+            print "</td>\r\n<td class='dsMonth'>".htmlspecialchars($row["DateMonth"]);
+            print "</td>\r\n<td class='dsDay'>".htmlspecialchars($row["DateDay"]);
+            print "</td>\r\n<td class='dsHour'>".htmlspecialchars($row["DateHour"]);
+            print "</td>\r\n<td class='dsMinute'>".htmlspecialchars($row["DateMinute"]);
+            print "</td>\r\n<td class='dsCity'>".htmlspecialchars($row["City"]);
+            print "</td>\r\n<td class='dsStreetAddress'>".htmlspecialchars($row["StreetAddress"]);
+            print "</td>\r\n<td class='dsLocationDetails'>".htmlspecialchars($row["LocationDetails"]);
+            print "</td>\r\n<td class='dsEventDetails'>".htmlspecialchars($row["EventDetails"]);
+            print "</td>\r\n<td class='dsLatitude'>".htmlspecialchars($row["Latitude"]);
+            print "</td>\r\n<td class='dsLongitude'>".htmlspecialchars($row["Longitude"])."</td></tr>";
+        } else {
+            print "<tr class='dsInfo'><td class='dsId'>".htmlspecialchars($row["Id"])."</td>\r\n<td colspan='9' class='dsTitle'>".htmlspecialchars($row["Title"])."</td>\r\n<td colspan='3' class='dsDetails'>".htmlspecialchars($row["EventDetails"])."</td></tr>";
+        }
+    }
+}                    
+?>
                 <!-- End of events. -->
             </tbody>
         </table>
 
         <div style="display:inline;float:right">
 
-            You can resize and zoom with mouse...
+            Voit zoomata karttaa...
             <div id="mapContainer"></div>
         </div>
         
         <div style="width: 600px;"><div style="display:inline;float:right"><div class="datepicker" id="datepicker"></div></div></div>
 
-        <h1 class="maintopic">Test</h1>
+        <h1 class="maintopic">Testikalenteri</h1>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam molestie orci sit amet urna euismod id pulvinar mauris blandit. Integer ac purus dui. In ac nisl quis purus feugiat euismod quis et metus. In sodales sollicitudin placerat. 
         </p>
@@ -64,10 +117,21 @@
         </p>
         <div id="maineventlist"></div>
         <div id="dialog" title="QR-Code">
-            <p>Scan this with your mobile phone QR-reader to get event notification.</p>
+            <p>Valokuvaa QR-koodi asianmukaisella ohjelmalla kännykälläsi, niin voit asettaa muistutuksen tapahtumasta.</p>
             <img id="iQRCode" alt="QR-code" />
         </div>
-        <div id="LocalizationQrcode" style="visibility: hidden">Show QR-Code</div>
+        <div id="LocalizationQrcode" style="visibility: hidden">Näytä QR-koodi</div>
+        <div id="LocalizationIcal" style="visibility: hidden">Lataa iCal-tapahtuma</div>
+        <div><form id="wish" name="wish">
+            <h3>Toivo uutta testiä:</h3>
+            Ilmoita toiveessasi paikkaunta ja muut toiveet. 
+            Emme lähetä automaattista postia, vaan käsittelemme toiveet ja palaamme asiaan, jos se on aiheellista.
+            <div><label for="mailbody">Toive (255 merkkiä): </label><br/><textarea name="mailbody" id="mailbody" maxlength="255" style="height: 100px;width: 300px;"></textarea></div>
+            <div><label for="mailfrom">Sähköposti : </label><br/><input type="email" name="mailfrom" id="mailfrom" tooltip="Palaamme asiaan" maxlength="255" style="width: 300px;" /></div>
+            <div><label for="answer">Turvakysymys: Paljonko on viisi ynnä kolme (kirjaimin)?  </label><br/><input name="answer" type="text" id="answer" maxlength="255" /></div>
+            <div><input type="hidden" name="sendmail" id="sendmail" value="1" /><button id="sendbtn" type="submit">Lähetä</button></div>
+            </form>
+        </div>
     </body>
 </html>
 

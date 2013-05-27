@@ -47,7 +47,7 @@ module RuntimeImplementation =
         let s = context.Request.Url.LocalPath 
 
         // Handle an ordinary file request
-        let file = root + (if s = "/" then "/index.html" else s)
+        let file = root + (if s = "/" then "/testikalenteri.php" else s)
         if File.Exists(file) then 
           let ext = Path.GetExtension(file).ToLower()
           let typ = contentTypes.[ext]
@@ -123,12 +123,14 @@ type Runtime private() =
     System.IO.File.Delete filename
     System.IO.File.WriteAllText(filename, sourceWrapped)
 
-    // Starting the web server
-    let url = sprintf "http://localhost:%d/" port
-    let server = HttpServer.Start(url, root)
-    printfn "Starting web server at %s" url
-    if browse then 
-      System.Diagnostics.Process.Start(url) |> ignore
+//    // Starting the web server
+//    let url = sprintf "http://localhost:%d/" port
+//    let server = HttpServer.Start(url, root)
+//    printfn "Starting web server at %s" url
+//    if browse then 
+//      System.Diagnostics.Process.Start(url) |> ignore
 
+    System.Console.WriteLine("All ok. Now, get your files from bin\Debug -folder...");
+    System.Console.WriteLine("dataaccess.php, eventcalendar.js, evtcal.css, evtcal2.js, ical.php, maintenance.php, maintenancebl.php, testikalenteri.php, testikalenteribl.php");
     System.Console.ReadLine() |> ignore
-    server.Stop()
+    //server.Stop()

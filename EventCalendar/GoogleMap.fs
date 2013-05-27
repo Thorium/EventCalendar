@@ -80,15 +80,15 @@ let showMyPosition markers =
                 let latitude = position.coords.latitude
                 let longitude = position.coords.longitude
                 let coords = gmaps.LatLng.CreateInstance(latitude, longitude)
-                gmaps.Marker.CreateInstance(
-                    new gmaps.MarkerOptions(
-                        position = coords, 
-                        flat = true,
-                        map = mymap, 
-                        // Enable if you want your color to be separate from events:
-                        //icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-                        title = "You are here!"
-                        )) |> ignore
+//                gmaps.Marker.CreateInstance(
+//                    new gmaps.MarkerOptions(
+//                        position = coords, 
+//                        flat = true,
+//                        map = mymap, 
+//                        // Enable if you want your color to be separate from events:
+//                        //icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+//                        title = "Olet tässä!"
+//                        )) |> ignore
                 // distance to my position:
                 let distance(marklat,marklon) =
                     let R = 6371.0; // km

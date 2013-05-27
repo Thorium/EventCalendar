@@ -62,9 +62,14 @@ let parseEventList() =
                     $(""#iQRCode"").attr(""src"",""" + EventItem.fetchQRCodeUrl(Vevent(e)) + @""");
                     $(""#dialog"").dialog(""open"");
                 });
+                $(""#ical" + e.Id + @""").click(function() {
+                    window.open(""ical.php?itemId=" + (e.Id + "00") + @""");
+                });
             });
             </script>
-            <button id=""opener" + e.Id + @""">" + jq.jQuery.Invoke("#LocalizationQrcode").text().ToString() + "</button>")
+            <button id=""opener" + e.Id + @""">" + jQuery("#LocalizationQrcode").text().ToString() + @"</button>
+            <button id=""ical" + e.Id + @""">" + jQuery("#LocalizationIcal").text().ToString() + @"</button>
+            ")
         |> fun c -> asJQuery(c).appendTo(lst) |> ignore
     
     EventItem.items
@@ -75,11 +80,11 @@ let parseEventList() =
                     )
 
 // Show latitudes and longitudes of eventlist
-let tellPositions() =
+let tellPositions (id:string) =
     seq{ for item in EventItem.items do
             match item with
             | Vevent(i) -> 
-                yield GoogleLatLong.FetchLatLong(i.StreetAddress + ", " + i.City)
+                yield GoogleLatLong.FetchLatLong(id, i.StreetAddress + ", " + i.City)
             | _ -> ignore()
        }
     |> Seq.toArray
@@ -103,12 +108,19 @@ let VeventsToMarkers(is) =
 //    j.window.alert("pit " + (Seq.length retr).ToString()) |> ignore
     retr
 
+let fetchNewPosition() =
+    j.window.alert("Suoritetaan Google-paikannus, jos ei toimi, niin koita uusiksi...") |> ignore
+    let getval item = (jQuery("#" + item).``val``()).ToString()
+    GoogleLatLong.FetchLatLong("", getval("StreetAddress") + ", " + getval("City"))
+        
 // Run the program:
 let main() = 
     parseEventList() |> ignore // Fetch event list
     let marks = VeventsToMarkers EventItem.items
 
     GoogleMap.showMyPosition(marks) // Make google map
+
+    jq.jQuery?fetchPosBtn.click(fetchNewPosition)
 
     //tellPositions() |> ignore  // This would show latitudes and longitudes
 

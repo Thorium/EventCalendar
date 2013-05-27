@@ -80,6 +80,7 @@ div.ui-datepicker
 
 }
  .datacontainer{}
+ .mdatacontainer{}
 
 .dsCity
 .dsDay
@@ -99,7 +100,14 @@ div.ui-datepicker
 .dsYear
 {}
 
+.aHour
+.aMinute
+.aMonth
+.aDay
+{}
 
-
+.graytarget {
+    color: lightgray
+}
 
 

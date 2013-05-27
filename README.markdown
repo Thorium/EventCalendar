@@ -1,4 +1,4 @@
-EventCalendar
+EventCalendar + PHP-maintenance, Finnish language
 ------
 
 EventCalendar is a free HTML + JavaScript-based event calendar,
@@ -6,6 +6,8 @@ to display brief list of events/venues/gatherings/meetings information, dates an
 
 The data comes from index.html page html-table called: #datasource
 You can change index.html to PHP or ASP page and dynamically create your own content.
+
+This edition has maintenance also. But the UI has been changed to Finnish.
 
 ![Screenshot][1]
 
@@ -16,6 +18,20 @@ To compile this, you need:
  - FunScript (F-Sharp to Javascirpt. FunScript uses F#-language, FSharp.Data. It has strongly typed libraries via TypeScript)
  - The compiled version is available at demo-folder.
 
+1) Run the software with the Visual Studio. It won't run, but it generates eventcalendar.js.
+2) Then collect these files from the bin\Debug -folder:
+dataaccess.php
+eventcalendar.js
+evtcal.css
+evtcal2.js
+ical.php
+maintenance.php
+maintenancebl.php
+testikalenteri.php
+testikalenteribl.php
+
+Maintenance*.* shouldn't be public in your web-server...
+ 
 The runtime uses pure HTML5 + CSS + JavaScript with jQuery, jQuery-UI and Modernizer
 
 Software features:

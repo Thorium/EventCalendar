@@ -23,6 +23,8 @@ type jq = FunScript.TypeScript.Api<"../Typings/jquery.d.ts">
 type j = FunScript.TypeScript.Api< @"
 ../Typings/lib.d.ts">
 
+let jQuery (command:string) = jq.jQuery.Invoke(command)
+
 //JSON Reply domain (FunScript doesn't seem to support JsonProvider yet)
 type public Location = public {
      mutable lat : float
@@ -57,15 +59,17 @@ let internal fetchCoordinates address (callback:'a -> unit) =
     jq.jQuery.ajax(url, settings)   
 
 
-let internal parseGoogleLocation (data:LocationReply) = 
+let internal parseGoogleLocation (id:string) (data:LocationReply) = 
     match Seq.isEmpty data.results with
     | true -> "No results" |>ignore
     | false ->
         let replies = Seq.head data.results
         let latlon = replies.geometry.location.lat, replies.geometry.location.lng
-        j.window.alert(replies.formatted_address + "\r\nLatitude: " + fst(latlon).ToString() + " Longitude: " + snd(latlon).ToString())
+        jQuery("#uLatitude"+id).``val``(fst(latlon).ToString()) |> ignore
+        jQuery("#uLongitude"+id).``val``(snd(latlon).ToString()) |> ignore
+        j.window.alert("Asetettu paikka osoitteelle: " + replies.formatted_address)
         //latlon
     
-let public FetchLatLong address = 
-    let result = fetchCoordinates address (parseGoogleLocation)
+let public FetchLatLong(id, address) = 
+    let result = fetchCoordinates address (parseGoogleLocation id)
     result

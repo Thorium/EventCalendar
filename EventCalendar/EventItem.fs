@@ -20,8 +20,19 @@ type jq = FunScript.TypeScript.Api<"../Typings/jquery.d.ts">
 
 let asJQuery x : jq.JQuery = unbox x 
 
-let mydate(y,m,d,h,n) = j.Date.CreateInstance((float)y,(float)m,(float)d,(float)h,(float)n,0.0)
-let mydated(y,m,d) = j.Date.CreateInstance((float)y,(float)m,(float)d)
+type DateOrMonth =
+| MonthAndYear of string
+| FullDate of j.Date
+
+let mydate(y,m,d,h,n) = 
+    match d with
+    | 0 -> MonthAndYear(m.ToString() + "." + y.ToString())
+    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)m,(float)d,(float)h,(float)n,0.0))
+
+let mydated(y,m,d) = 
+    match d with
+    | 0 -> MonthAndYear(m.ToString() + "." + y.ToString())
+    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)m,(float)d))
 
 // Javascript date-formatting:
 let private formatDateData (md:j.Date) duration =
@@ -35,17 +46,32 @@ let private formatDateData (md:j.Date) duration =
     md.getMinutes() |> lz,
     md.getSeconds() |> lz
 
-let jsDateFormatCalendar (md:j.Date) =
-    let (y,m,d,h,n,s) = formatDateData md 0.0
-    y + "" + m + "" + d
+let jsDateFormatCalendar (mdx:DateOrMonth) =
+    match mdx with
+    | MonthAndYear(s) -> s
+    | FullDate(md) -> 
+        let (y,m,d,h,n,s) = formatDateData md 0.0
+        y + "" + m + "" + d
 
-let jsDateFormatToJson (md:j.Date) duration =
-    let (y,m,d,h,n,s) = formatDateData md duration
-    y + m + d + "T" + h + n + s
+let jsDateFormatToJson (mdx:DateOrMonth) duration =
+    match mdx with
+    | MonthAndYear(s) -> s
+    | FullDate(md) -> 
+        let (y,m,d,h,n,s) = formatDateData md duration
+        y + m + d + "T" + h + n + s
 
-let jsDateFormatToUser (md:j.Date) =
-    let (y,m,d,h,n,s) = formatDateData md 0.0
-    d + "." + m + "." + y + " " + h + "." + n
+let jsDateFormatToUser (mdx:DateOrMonth) =
+    match mdx with
+    | MonthAndYear(s) -> 
+        match s with
+        | "0.0" -> ""
+        | _ -> s
+    | FullDate(md) -> 
+        match md with
+        | z when z.getFullYear() < 1990.0 -> "" // Unknown year
+        | _ -> //Known day
+            let (y,m,d,h,n,s) = formatDateData md 0.0
+            d + "." + m + "." + y + " " + h + "." + n
 
 // There are two types of events: events and general notifications
 type notification(id, title, details) =
@@ -55,7 +81,7 @@ type notification(id, title, details) =
     with
         member x.Info() = title + ", " + details
 
-type vevent(id, title, starttime:j.Date, city, streetAddress, locationdetails, details, latlon:float*float) =
+type vevent(id, title, starttime:DateOrMonth, city, streetAddress, locationdetails, details, latlon:float*float) =
         member x.Id = id
         member x.Title = title //Start time in EET timezone, and event duration in hours:
         member x.StarTime = starttime
@@ -114,6 +140,7 @@ let items =
             let tds = trs.item((float)i).childNodes
             let s x = tds.item((float)x).textContent
             let v x = (int)(s x)
+            
             //j.window.alert(tds.length.ToString()) |> ignore
             match tds.length with
             | 13.0 ->  new vevent(
@@ -131,5 +158,22 @@ let items =
                         s 1, // title
                         s 2  // details
                        ) |> Note;
-            | _ -> failwith("#datasource tablestructure has changed!")
+            | 25.0 when (s 1).Length < 2 && (s 3).Length < 2  && (s 23).Length < 2 -> // with line breaks 
+                     new vevent(
+                        s 0,  // id
+                        s 2,  // title 
+                        mydate(v 4, v 6, v 8, v 10, v 12), // time
+                        s 14,  // city
+                        s 16,  // street address
+                        s 18,  // location details
+                        s 20, // event details
+                        ((float)(s 22),(float)(s 24)) // latitude, longitude
+                       ) |> Vevent;
+            | 5.0 when (s 1).Length < 2 && (s 3).Length < 2 -> // with line breaks 
+                    new notification(
+                        s 0, // id
+                        s 2, // title
+                        s 4  // details
+                       ) |> Note;
+            | _ -> failwith("#datasource tablestructure has changed! " + tds.length.ToString())
         )
