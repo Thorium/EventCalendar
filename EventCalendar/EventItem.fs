@@ -20,7 +20,6 @@ type jq = FunScript.TypeScript.Api<"../Typings/jquery.d.ts">
 
 let asJQuery x : jq.JQuery = unbox x 
 
-<<<<<<< HEAD
 type DateOrMonth =
 | MonthAndYear of string
 | FullDate of j.Date
@@ -28,16 +27,12 @@ type DateOrMonth =
 let mydate(y,m,d,h,n) = 
     match d with
     | 0 -> MonthAndYear(m.ToString() + "." + y.ToString())
-    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)m,(float)d,(float)h,(float)n,0.0))
+    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)(m-1),(float)d,(float)h,(float)n,0.0))
 
 let mydated(y,m,d) = 
     match d with
     | 0 -> MonthAndYear(m.ToString() + "." + y.ToString())
-    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)m,(float)d))
-=======
-let mydate(y,m,d,h,n) = j.Date.CreateInstance((float)y,(float)(m-1),(float)d,(float)h,(float)n,0.0)
-let mydated(y,m,d) = j.Date.CreateInstance((float)y,(float)(m-1),(float)d)
->>>>>>> origin/master
+    | _ -> FullDate(j.Date.CreateInstance((float)y,(float)(m-1),(float)d))
 
 // Javascript date-formatting:
 let private formatDateData (md:j.Date) duration =
@@ -51,18 +46,12 @@ let private formatDateData (md:j.Date) duration =
     md.getMinutes() |> lz,
     md.getSeconds() |> lz
 
-<<<<<<< HEAD
 let jsDateFormatCalendar (mdx:DateOrMonth) =
     match mdx with
     | MonthAndYear(s) -> s
     | FullDate(md) -> 
         let (y,m,d,h,n,s) = formatDateData md 0.0
-        y + "" + m + "" + d
-=======
-let jsDateFormatCalendar (md:j.Date) =
-    let (y,m,d,h,n,s) = formatDateData md 0.0
-    y + "-" + m + "-" + d
->>>>>>> origin/master
+        y + "-" + m + "-" + d
 
 let jsDateFormatToJson (mdx:DateOrMonth) duration =
     match mdx with
