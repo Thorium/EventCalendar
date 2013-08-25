@@ -63,7 +63,7 @@ let parseEventList() =
                     $(""#dialog"").dialog(""open"");
                 });
                 $(""#ical" + e.Id + @""").click(function() {
-                    window.open(""ical.php?itemId=" + (e.Id + "00") + @""");
+                    window.open(""" + jQuery("#IcalPath").text().ToString() + "?itemId=" + (e.Id + "00") + @""");
                 });
             });
             </script>

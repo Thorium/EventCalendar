@@ -122,6 +122,7 @@ if(isset($eventdata)){
         </div>
         <div id="LocalizationQrcode" style="visibility: hidden">Näytä QR-koodi</div>
         <div id="LocalizationIcal" style="visibility: hidden">Lataa iCal-tapahtuma</div>
+        <div id="IcalPath" style="visibility: hidden">ical.php</div>
         <div><form id="wish" name="wish">
             <h3>Toivo uutta testiä:</h3>
             Ilmoita toiveessasi paikkaunta ja muut toiveet. 
