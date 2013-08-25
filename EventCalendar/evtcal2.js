@@ -4,9 +4,9 @@
 $(document).ready(function () {
     var dates = $(".technicaldate").text();
     function hasEventDay(date) {
-        var f1 = "" + $.datepicker.formatDate('yymmdd', date).toString();
-        var f2 = "" + $.datepicker.formatDate('yymd', date).toString();
-        if (dates.indexOf(f1) !== -1 || dates.indexOf(f2) !== -1) {
+        var f1 = "" + $.datepicker.formatDate('yy-mm-dd', date).toString();
+        //var f2 = "" + $.datepicker.formatDate('yy-m-d', date).toString();
+        if (dates.indexOf(f1) !== -1 /*|| dates.indexOf(f2) !== -1 */) {
             return [true, 'eventDate', ""];
         }
 
