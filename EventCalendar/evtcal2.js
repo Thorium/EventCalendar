@@ -33,7 +33,7 @@ $(document).ready(function () {
         $.datepicker.setDefaults($.datepicker.regional.fi);
         $("#datepicker").datepicker({
             onSelect: function (dateText, instr) {
-                $("." + dateText).css({ "backgroundColor": "#718DE2" });
+                $("." + dateText).attr("class", "myDateEvent");
             },
             inline: true,
             beforeShowDay: hasEventDay

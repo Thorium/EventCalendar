@@ -43,7 +43,7 @@ let makeMap markers  =
             j.document.getElementById("mapContainer").AsElement(), 
             new gmaps.MapOptions(
                 // Map of Finland
-                zoom = 5.0, 
+                zoom = 4.0, 
                 center = gmaps.LatLng.CreateInstance(65.45,25.96), 
                 mapTypeControl = true,
                 mapTypeId = gmaps.MapTypeId.ROADMAP))
@@ -114,6 +114,6 @@ let showMyPosition markers =
                 quiteNear 
                 |> Seq.iter(
                     fun f -> 
-                        (jq.jQuery?(f.Id)).css("backgroundColor", "#75BDD5") |> ignore
+                        (jq.jQuery?(f.Id)).attr("class", "myNearEvent") |> ignore
                 )
         ))

@@ -13,6 +13,32 @@
     position:relative;
     z-index: 50;
 }
+.myNearEvent {
+    background-color: #75BDD5;
+    border-style: outset;
+    border-width: thin thick thick thin;
+    border-color: #959DFF;
+    margin: 30px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    /*height: 150px;*/
+    position:relative;
+    z-index: 50;
+}
+.myDateEvent {
+    background-color: #718DE2;
+    border-style: outset;
+    border-width: thin thick thick thin;
+    border-color: #959DFF;
+    margin: 30px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    /*height: 150px;*/
+    position:relative;
+    z-index: 50;    
+}
 .timeAndCity {
     font-weight: bold
 }
