@@ -20,8 +20,8 @@ type jq = FunScript.TypeScript.Api<"../Typings/jquery.d.ts">
 
 let asJQuery x : jq.JQuery = unbox x 
 
-let mydate(y,m,d,h,n) = j.Date.CreateInstance((float)y,(float)m,(float)d,(float)h,(float)n,0.0)
-let mydated(y,m,d) = j.Date.CreateInstance((float)y,(float)m,(float)d)
+let mydate(y,m,d,h,n) = j.Date.CreateInstance((float)y,(float)(m-1),(float)d,(float)h,(float)n,0.0)
+let mydated(y,m,d) = j.Date.CreateInstance((float)y,(float)(m-1),(float)d)
 
 // Javascript date-formatting:
 let private formatDateData (md:j.Date) duration =
@@ -29,7 +29,7 @@ let private formatDateData (md:j.Date) duration =
         if(i<10.0) then "0" + i.ToString()
         else i.ToString()
     md.getFullYear().ToString(),
-    md.getMonth() |> lz, //(md.getMonth()+1.0) |> lz,
+    (md.getMonth()+1.0) |> lz, //md.getMonth() |> lz,
     md.getDate() |> lz,
     md.getHours() + duration |> lz,
     md.getMinutes() |> lz,
@@ -37,7 +37,7 @@ let private formatDateData (md:j.Date) duration =
 
 let jsDateFormatCalendar (md:j.Date) =
     let (y,m,d,h,n,s) = formatDateData md 0.0
-    y + "" + m + "" + d
+    y + "-" + m + "-" + d
 
 let jsDateFormatToJson (md:j.Date) duration =
     let (y,m,d,h,n,s) = formatDateData md duration
