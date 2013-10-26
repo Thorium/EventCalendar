@@ -1,12 +1,11 @@
 ﻿
 // Some infrastructure code, aliases to simplify things:
 #if INTERACTIVE
-#r "../packages/FSharp.Data.1.1.4/lib/net40/FSharp.Data.dll"
+#r "../packages/FSharp.Data.1.1.10/lib/net40/FSharp.Data.dll"
 #r "FSharp.Data.TypeProviders.dll"
-#r "../packages/FunScript.0.2.0.4/lib/net45/FunScript.dll"
-#r "../packages/FunScript.0.2.0.4/lib/net45/FunScript.TypeScript.dll"
-#r "../packages/FunScript.0.2.0.4/lib/net45/FunScript.TypeScript.Interop.dll"
-#r "../packages/FSharp.Data.1.1.4/lib/net40/FSharp.Data.dll"
+#r "../packages/FunScript.1.0.0.1/lib/net40/FunScript.dll"
+#r "../packages/FunScript.1.0.0.1/lib/net40/FunScript.TypeScript.dll"
+#r "../packages/FunScript.1.0.0.1/lib/net40/FunScript.TypeScript.Interop.dll"
 #else
 [<FunScript.JS>]
 module GoogleMap

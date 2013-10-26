@@ -61,32 +61,32 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">
-      <HintPath>..\packages\FSharp.Data.1.1.4\lib\net40\FSharp.Data.dll</HintPath>
+      <HintPath>..\packages\FSharp.Data.1.1.10\lib\net40\FSharp.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data.DesignTime">
-      <HintPath>..\packages\FSharp.Data.1.1.4\lib\net40\FSharp.Data.DesignTime.dll</HintPath>
+      <HintPath>..\packages\FSharp.Data.1.1.10\lib\net40\FSharp.Data.DesignTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Data.TypeProviders, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="FunScript">
-      <HintPath>..\packages\FunScript.0.2.0.4\lib\net45\FunScript.dll</HintPath>
+      <HintPath>..\packages\FunScript.1.0.0.1\lib\net40\FunScript.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FunScript.BrowserAPI">
-      <HintPath>..\packages\FunScript.0.2.0.4\lib\net45\FunScript.BrowserAPI.dll</HintPath>
+      <HintPath>..\packages\FunScript.1.0.0.1\lib\net40\FunScript.BrowserAPI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FunScript.Data">
-      <HintPath>..\packages\FunScript.0.2.0.4\lib\net45\FunScript.Data.dll</HintPath>
+      <HintPath>..\packages\FunScript.1.0.0.1\lib\net40\FunScript.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FunScript.TypeScript">
-      <HintPath>..\packages\FunScript.0.2.0.4\lib\net45\FunScript.TypeScript.dll</HintPath>
+      <HintPath>..\packages\FunScript.1.0.0.1\lib\net40\FunScript.TypeScript.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FunScript.TypeScript.Interop">
-      <HintPath>..\packages\FunScript.0.2.0.4\lib\net45\FunScript.TypeScript.Interop.dll</HintPath>
+      <HintPath>..\packages\FunScript.1.0.0.1\lib\net40\FunScript.TypeScript.Interop.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
