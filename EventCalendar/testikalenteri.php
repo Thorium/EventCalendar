@@ -120,9 +120,10 @@ if(isset($eventdata)){
             <p>Valokuvaa QR-koodi asianmukaisella ohjelmalla kännykälläsi, niin voit asettaa muistutuksen tapahtumasta.</p>
             <img id="iQRCode" alt="QR-code" />
         </div>
-        <div id="LocalizationQrcode" style="visibility: hidden">Näytä QR-koodi</div>
-        <div id="LocalizationIcal" style="visibility: hidden">Lataa iCal-tapahtuma</div>
+        <div id="LocalizationQrcodeUrl" style="visibility: hidden">qr-small.png</div>
+        <div id="LocalizationIcalUrl" style="visibility: hidden">ical-small.png</div>
         <div id="IcalPath" style="visibility: hidden">ical.php</div>
+        <div id="CalInfoDetails" style="visibility: hidden">Lisätietoja asiasta...</div>
         <div><form id="wish" name="wish">
             <h3>Toivo uutta testiä:</h3>
             Ilmoita toiveessasi paikkaunta ja muut toiveet. 

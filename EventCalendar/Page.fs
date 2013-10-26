@@ -44,31 +44,49 @@ let parseEventList() =
     let makedivi (e:notification) = // Notifications
         jQuery("<div />").attr("class", "myevent")
         |> fun a -> asJQuery(a).attr("id", e.Id)
-        |> fun b -> asJQuery(b).html(@"<div class=""timeAndCity"">" + e.Title + @"</div>
-                                       <div class=""details"">" + e.Details + @"</div>")
+        |> fun b -> asJQuery(b).html(@"<ul><li class=""timeAndCity"">" + e.Title + @"</li>
+                                       <li class=""details"">" + e.Details + @"</li></ul>
+                                       <p class=""testitPistelinja""></p>")
         |> fun c -> asJQuery(c).appendTo(lst) |> ignore
     let makediv (e:vevent) = // Events
         jQuery("<div />").attr("class", "myevent " + (jsDateFormatCalendar e.StarTime))
         |> fun a -> asJQuery(a).attr("id", e.Id)
         |> fun b -> asJQuery(b).html(@"
             <a id=""L" + j.encodeURIComponent(e.Id) + @""">
-            <div class=""technicaldate"">" + (jsDateFormatCalendar e.StarTime) + @"</div></a>
-            <div class=""timeAndCity"">" + jsDateFormatToUser e.StarTime + " " + e.City +  @"</div>
-            <div class=""location"">" + e.StreetAddress + @" <br />" + e.LocationDetails + @"
-            <div class=""info"">" + e.Title + ", " + e.Details + @"</div>
-            <script type=""text/javascript"">
-            $(function() {
-                $(""#opener" + e.Id + @""").click(function() {
-                    $(""#iQRCode"").attr(""src"",""" + EventItem.fetchQRCodeUrl(Vevent(e)) + @""");
-                    $(""#dialog"").dialog(""open"");
-                });
-                $(""#ical" + e.Id + @""").click(function() {
-                    window.open(""" + jQuery("#IcalPath").text().ToString() + "?itemId=" + (e.Id + "00") + @""");
-                });
-            });
-            </script>
-            <button id=""opener" + e.Id + @""">" + jQuery("#LocalizationQrcode").text().ToString() + @"</button>
-            <button id=""ical" + e.Id + @""">" + jQuery("#LocalizationIcal").text().ToString() + @"</button>
+            <div id='pop" + j.encodeURIComponent(e.Id) + @"' title='Testi' class='event testipopup'>
+            <ul>
+            <li class=""timeAndCity"">" + jsDateFormatToUser e.StarTime + " " + e.City +  @"</li>
+            <li class=""location"">" + e.StreetAddress + @" <br />" + e.LocationDetails + @"</li>
+            <li class=""info"">" + e.Details + @"</li>
+            <li class=""info"">&nbsp;</li>
+            <li class=""info"">" + jQuery("#CalInfoDetails").text().ToString() + @"</li>
+            <li class=""info"">" + e.Title + @"</li>
+            <li class=""info"">&nbsp;</li>
+            </ul><div class=""dialogiAlaosa"">
+            <button id=""opener" + e.Id + @""" class=""qrButton""><img id=""openeri" + e.Id + @""" class=""qrButton"" src=""" + jQuery("#LocalizationQrcodeUrl").text().ToString() + @""" alt=""QR""/></button>
+            <button id=""ical" + e.Id + @""" class=""icalButton""><img id=""icali" + e.Id + @""" class=""icalButton"" src=""" + jQuery("#LocalizationIcalUrl").text().ToString() + @""" alt=""iCal""/></button>
+            </div></div>
+            <a id=""op" + j.encodeURIComponent(e.Id) + @""" href=""#""><ul>
+            <li class=""technicaldate"">" + (jsDateFormatCalendar e.StarTime) + @"</li>
+            <li class=""timeAndCity"">" + jsDateFormatToUserDay e.StarTime + " " + e.City +  @"</li>
+            </ul></a><script type=""text/javascript"">
+$(function() {
+
+    $(""#pop" + j.encodeURIComponent(e.Id) + @""").dialog({ autoOpen: false });
+    $(""#op" + j.encodeURIComponent(e.Id) + @""").click(function(){$(""#pop" + j.encodeURIComponent(e.Id) + @""").dialog(""open"");return false;});
+    $(""#opi" + j.encodeURIComponent(e.Id) + @""").hover(function(){$(""#opi" + j.encodeURIComponent(e.Id) + @""").attr('src','" + jQuery("#LocalizationInfoHoverUrl").text().ToString() + @"'); }, function() { $(""#opi" + j.encodeURIComponent(e.Id) + @""").attr('src','" + jQuery("#LocalizationInfoUrl").text().ToString() + @"');});
+    $(""#openeri" + e.Id + @""").hover(function(){$(""#openeri" + e.Id + @""").attr('src','" + jQuery("#LocalizationQrcodeHoverUrl").text().ToString() + @"'); }, function() { $(""#openeri" + e.Id + @""").attr('src','" + jQuery("#LocalizationQrcodeUrl").text().ToString() + @"');});
+    $(""#icali" + e.Id + @""").hover(function(){$(""#icali" + e.Id + @""").attr('src','" + jQuery("#LocalizationIcalHoverUrl").text().ToString() + @"'); }, function() { $(""#icali" + e.Id + @""").attr('src','" + jQuery("#LocalizationIcalUrl").text().ToString() + @"');});
+
+    $(""#opener" + e.Id + @""").click(function() {
+        $(""#iQRCode"").attr(""src"",""" + EventItem.fetchQRCodeUrl(Vevent(e)) + @""");
+        $(""#dialog"").dialog(""open"");
+    });
+    $(""#ical" + e.Id + @""").click(function() {
+        window.open(""" + jQuery("#IcalPath").text().ToString() + "?itemId=" + (e.Id + "00") + @""");
+    });
+});
+            </script><p class=""testitPistelinja""></p>
             ")
         |> fun c -> asJQuery(c).appendTo(lst) |> ignore
     

@@ -73,6 +73,19 @@ let jsDateFormatToUser (mdx:DateOrMonth) =
             let (y,m,d,h,n,s) = formatDateData md 0.0
             d + "." + m + "." + y + " " + h + "." + n
 
+let jsDateFormatToUserDay (mdx:DateOrMonth) =
+    match mdx with
+    | MonthAndYear(s) -> 
+        match s with
+        | "0.0" -> ""
+        | _ -> s
+    | FullDate(md) -> 
+        match md with
+        | z when z.getFullYear() < 1990.0 -> "" // Unknown year
+        | _ -> //Known day
+            let (y,m,d,h,n,s) = formatDateData md 0.0
+            d + "." + m + "." + y
+
 // There are two types of events: events and general notifications
 type notification(id, title, details) =
         member x.Id = id
