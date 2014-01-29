@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EventCalendar", "EventCalendar\EventCalendar.fsproj", "{7A26E2A7-BD92-4CDF-AB11-232B4EB3744B}"
 EndProject
 Global
